@@ -1,9 +1,15 @@
 {
 	"name": "@dandurt/t1-component-library",
-	"version": "1.0.5",
+	"version": "1.0.4",
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
 	"types": "dist/index.d.ts",
-	"main": "dist/index.cjs.js",
-	"module": "dist/index.esm.js",
+	"module": "dist/index.js",
 	"files": [
 		"dist"
 	],
@@ -60,6 +66,7 @@
 		"rollup-plugin-peer-deps-external": "^2.2.4",
 		"rollup-plugin-postcss": "^4.0.2",
 		"storybook": "^9.0.9",
+		"styled-components": "^5.3.11",
 		"ts-jest": "^29.4.0",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.8.3",

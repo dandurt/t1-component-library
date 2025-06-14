@@ -1,6 +1,4 @@
-import * as styledComponents from "styled-components";
-const styled = styledComponents.default;
-const { css } = styledComponents;
+import styled, { css } from "styled-components";
 
 export const Overlay = styled.div`
 	position: fixed;

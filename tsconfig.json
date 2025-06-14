@@ -24,7 +24,6 @@
 		"dist",
 		"node_modules",
 		"rollup.config.ts",
-		"rollup.config.mjs",
 		"**/*.stories.tsx",
 		".storybook"
 	]

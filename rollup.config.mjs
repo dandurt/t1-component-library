@@ -16,36 +16,23 @@ const __dirname = path.dirname(__filename);
 const config = [
 	{
 		input: "src/index.ts",
-		output: [
-			{
-				file: "dist/index.esm.js",
-				format: "esm",
-				sourcemap: true,
-			},
-			{
-				file: "dist/index.cjs.js",
-				format: "cjs",
-				sourcemap: true,
-				exports: "named",
-			},
-		],
+		output: {
+			file: "dist/index.js",
+			format: "esm",
+			sourcemap: true,
+		},
 		external: ["react", "react-dom", "styled-components", /\.css$/],
 		plugins: [
 			peerDepsExternal(),
-			resolve({
-				extensions: [".mjs", ".js", ".jsx", ".json", ".ts", ".tsx"],
-			}),
-			commonjs(),
+			resolve({ extensions: [".mjs", ".js", ".jsx", ".json", ".ts", ".tsx"] }),
+			commonjs({ defaultIsModuleExports: true }),
 			typescript({ tsconfig: "./tsconfig.json" }),
 			babel({
 				babelHelpers: "bundled",
 				extensions: [".js", ".jsx", ".ts", ".tsx"],
 				exclude: /node_modules/,
-				plugins: ["babel-plugin-styled-components"],
 			}),
-			postcss({
-				modules: true,
-			}),
+			postcss({ modules: true }),
 			alias({
 				entries: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
 			}),
@@ -53,7 +40,7 @@ const config = [
 	},
 	{
 		input: "dist/types/index.d.ts",
-		output: [{ file: "dist/index.d.ts", format: "es" }],
+		output: { file: "dist/index.d.ts", format: "es" },
 		plugins: [dts()],
 	},
 ];
