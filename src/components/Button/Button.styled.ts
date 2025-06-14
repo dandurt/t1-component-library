@@ -1,4 +1,4 @@
-import styled, { css } from "@/utils/styled";
+import styled, { css } from "styled-components";
 
 import { ButtonVariant } from "./Button.types";
 
