@@ -1,6 +1,4 @@
-import * as styledImport from "styled-components";
-const styled = styledImport.default || styledImport;
-const { css } = styledImport;
+import styled, { css } from "@/utils/styled";
 
 export const StyledCard = styled.div<{ variant: string }>`
 	border-radius: 8px;
