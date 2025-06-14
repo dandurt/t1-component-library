@@ -1,5 +1,5 @@
 import * as styledImport from "styled-components";
-const styled = styledImport.default;
+const styled = styledImport.default || styledImport;
 const { css } = styledImport;
 
 export const StyledCard = styled.div<{ variant: string }>`
