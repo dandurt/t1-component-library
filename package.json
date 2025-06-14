@@ -1,6 +1,6 @@
 {
 	"name": "@dandurt/t1-component-library",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"type": "module",
 	"exports": {
 		".": {
