@@ -1,4 +1,6 @@
-import styled, { css } from "styled-components";
+import * as styledComponents from "styled-components";
+const styled = styledComponents.default;
+const { css } = styledComponents;
 
 export const StyledWrapper = styled.div`
 	display: flex;
