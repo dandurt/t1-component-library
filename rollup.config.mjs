@@ -8,6 +8,7 @@ import dts from "rollup-plugin-dts";
 import alias from "@rollup/plugin-alias";
 import path from "path";
 import { fileURLToPath } from "url";
+import json from "@rollup/plugin-json";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,6 +24,7 @@ const config = [
 		},
 		external: ["react", "react-dom", "styled-components", /\.css$/],
 		plugins: [
+			json(),
 			peerDepsExternal(),
 			resolve({ extensions: [".mjs", ".js", ".jsx", ".json", ".ts", ".tsx"] }),
 			commonjs({ defaultIsModuleExports: true }),

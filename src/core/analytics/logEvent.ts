@@ -1,6 +1,7 @@
 import { analitycs } from "../services/api";
+import { AnalyticsEvent } from "./interfaces/event";
 
-export const logEvent = (event: any) => {
+export const logEvent = (event: AnalyticsEvent) => {
 	try {
 		analitycs.post("/track", {
 			...event,
