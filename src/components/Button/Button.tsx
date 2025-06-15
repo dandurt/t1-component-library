@@ -13,12 +13,12 @@ const Button = ({
 	...props
 }: ButtonProps) => {
 	React.useEffect(() => {
-		logEvent({ component: "Button", event: "render" });
+		logEvent({ component: "Button", action: "render" });
 	}, []);
 
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		if (!disabled) {
-			logEvent({ component: "Button", event: "click" });
+			logEvent({ component: "Button", action: "click" });
 			props.onClick?.(e);
 		}
 	};

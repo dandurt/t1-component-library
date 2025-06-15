@@ -8,7 +8,7 @@ import {
 	CloseButton,
 } from "./Modal.styled";
 import { ModalProps } from "./Modal.types";
-// import { logEvent } from "../../infrastructure/analytics/logEvent";
+import { logEvent } from "@/core/analytics/logEvent";
 
 const Modal: React.FC<ModalProps> = ({
 	isOpen,
@@ -20,7 +20,7 @@ const Modal: React.FC<ModalProps> = ({
 }) => {
 	useEffect(() => {
 		if (isOpen) {
-			// logEvent({ component: "Modal", event: "render" });
+			logEvent({ component: "Modal", action: "render" });
 		}
 	}, [isOpen]);
 
@@ -28,6 +28,7 @@ const Modal: React.FC<ModalProps> = ({
 
 	const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
 		if (e.target === e.currentTarget) {
+			logEvent({ component: "Modal", action: "blur" });
 			onClose();
 		}
 	};

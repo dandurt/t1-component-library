@@ -1,7 +1,7 @@
 import React, { useEffect, useId } from "react";
 import { InputProps } from "./Input.types";
 import { StyledWrapper, StyledLabel, StyledInput } from "./Input.styled";
-// import { logEvent } from "../../infrastructure/analytics/logEvent";
+import { logEvent } from "@/core/analytics/logEvent";
 
 const Input: React.FC<InputProps> = ({
 	label,
@@ -14,11 +14,11 @@ const Input: React.FC<InputProps> = ({
 	const inputId = useId();
 
 	useEffect(() => {
-		// logEvent({ component: "Input", event: "render" });
+		logEvent({ component: "Input", action: "render" });
 	}, []);
 
 	const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
-		// logEvent({ component: "Input", event: "click" });
+		logEvent({ component: "Input", action: "click" });
 		props.onClick?.(e);
 	};
 

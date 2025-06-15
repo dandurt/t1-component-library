@@ -1,5 +1,6 @@
 export interface AnalyticsEvent {
 	component: string;
-	event: "render" | "click";
+	action: "render" | "click" | "blur";
 	timestamp?: string;
+	variant?: string;
 }

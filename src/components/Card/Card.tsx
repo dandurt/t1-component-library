@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { CardProps } from "./Card.types";
 import { StyledCard, CardImage, CardSection } from "./Card.styled";
-// import { logEvent } from "../../infrastructure/analytics/logEvent";
+import { logEvent } from "@/core/analytics/logEvent";
 
 const Card: React.FC<CardProps> = ({
 	header,
@@ -11,7 +11,7 @@ const Card: React.FC<CardProps> = ({
 	variant = "default",
 }) => {
 	useEffect(() => {
-		// logEvent({ component: "Card", event: "render" });
+		logEvent({ component: "Card", action: "render" });
 	}, []);
 
 	return (
