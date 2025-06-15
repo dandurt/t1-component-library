@@ -9,6 +9,7 @@ import alias from "@rollup/plugin-alias";
 import path from "path";
 import { fileURLToPath } from "url";
 import json from "@rollup/plugin-json";
+import nodePolyfills from "rollup-plugin-node-polyfills";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,11 +23,27 @@ const config = [
 			format: "esm",
 			sourcemap: true,
 		},
-		external: ["react", "react-dom", "styled-components", /\.css$/],
+		external: [
+			"react",
+			"react-dom",
+			"styled-components",
+			/\.css$/,
+			"fs",
+			"path",
+			"crypto",
+			"stream",
+			"assert",
+			"tty",
+		],
 		plugins: [
 			json(),
 			peerDepsExternal(),
-			resolve({ extensions: [".mjs", ".js", ".jsx", ".json", ".ts", ".tsx"] }),
+			nodePolyfills(),
+			resolve({
+				extensions: [".mjs", ".js", ".jsx", ".json", ".ts", ".tsx"],
+				browser: true,
+				preferBuiltins: false,
+			}),
 			commonjs({ defaultIsModuleExports: true }),
 			typescript({ tsconfig: "./tsconfig.json" }),
 			babel({
